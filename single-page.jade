@@ -1,0 +1,25 @@
+|<?php 
+|	
+|	/*
+|	Template Name: Single Page Template
+|	*/
+|	
+|?>
+| <?php get_header(); ?>
+.container#maincontent
+	.row#productmenu
+		.col-lg
+			.zipfel-wrapper
+				#zipfel-links
+			.zipfel-wrapper
+				#zipfel-rechts
+			<?php wp_nav_menu(array('theme_location'=>'secondary_menu')); ?>
+	.row#content.content-padding
+		| 	<?php if (have_posts()) : ?>
+		|		<?php while (have_posts()) : ?>
+		|	    	<?php the_post(); ?>
+		|	    		<!--<h2><?php the_title(); ?></h2>-->
+		|	        	<?php the_content(); ?>
+		|		<?php endwhile; ?>
+		|	<?php endif; ?>
+| <?php get_footer(); ?>

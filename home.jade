@@ -1,0 +1,35 @@
+| <?php 
+| 	
+| 	/*
+| 	Template Name: Blog Page Template
+| 	*/
+| 	
+| ?>
+| <?php get_header(); ?>
+.container#maincontent
+	.row#content
+		.col-lg
+			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+			
+			.post-content
+			
+				|<a href="<?php the_permalink(); ?>"><h1><?php the_title(); ?></h1></a>
+				|<div class="the-date"><?php echo get_the_date(); ?></div>
+
+				.post-thumbnail
+					|<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+
+				<?php the_excerpt(); ?>
+				
+			<?php endwhile; ?>
+			
+			.navigation
+				.next-posts <?php next_posts_link(); ?>
+				.prev-posts <?php previous_posts_link(); ?>
+			
+			<?php else : ?>
+			
+			h1 Not Found
+			
+			<?php endif; ?>
+| <?php get_footer(); ?>

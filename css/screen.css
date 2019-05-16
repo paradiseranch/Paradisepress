@@ -1,0 +1,332 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 960px !important; } }
+
+@font-face {
+  font-family: BERNIERRegular;
+  text-transform: lowercase;
+  src: url("../fonts/BERNIERRegular-Regular.otf") format("opentype"); }
+
+html {
+  position: relative; }
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  padding-bottom: 100px;
+  min-height: 100vh;
+  font-weight: 100 !important;
+  font-size: 1rem !important; }
+  body.no-scroll {
+    overflow: hidden; }
+  body h1, body h2, body h3 {
+    margin-bottom: 30px; }
+  body a {
+    color: #A17FB0;
+    font-weight: 400;
+    text-decoration: none;
+    transition: 0.25s ease-in-out; }
+    body a:hover, body a:active {
+      color: #A17FB0;
+      text-decoration: underline; }
+  body blockquote {
+    padding: 10px 40px;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.2em; }
+    body blockquote::before {
+      content: open-quote;
+      left: 15px;
+      font-weight: 500;
+      font-size: 5rem;
+      display: block;
+      text-align: center;
+      line-height: 0.6em;
+      margin-top: 30px;
+      font-family: cursive; }
+    body blockquote::after {
+      content: close-quote;
+      height: 0;
+      width: 0;
+      display: block;
+      opacity: 0; }
+
+#menu-container {
+  position: fixed;
+  top: 0;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 1;
+  -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+  transition: 0.3s cubic-bezier(0.19, 0.63, 0.83, 0.67); }
+
+#topmenu {
+  height: 70px; }
+
+#desktop-menu {
+  display: block; }
+  #desktop-menu ul {
+    padding-left: 0;
+    list-style: none;
+    float: right;
+    margin-top: 15px; }
+    #desktop-menu ul li {
+      float: left;
+      margin: 10px 30px 0px;
+      padding-bottom: 5px;
+      line-height: 1; }
+      #desktop-menu ul li a {
+        color: black;
+        text-decoration: none;
+        display: block; }
+        #desktop-menu ul li a:hover {
+          color: black; }
+      #desktop-menu ul li span.underline-dash {
+        width: 100%;
+        height: 1px;
+        display: block;
+        background: black;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        margin-top: 10px; }
+      #desktop-menu ul li.current_page_item span.underline-dash, #desktop-menu ul li.current-menu-ancestor span.underline-dash, #desktop-menu ul li:hover span.underline-dash, #desktop-menu ul li:active span.underline-dash {
+        opacity: 1; }
+
+#desktop-logo {
+  padding: 15px 0px 0px 30px; }
+  #desktop-logo #logo {
+    background: url("../images/Paradise-Ranch-Logo-3.png");
+    background-size: 55px auto;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 75px; }
+    @media (max-width: 414px) {
+      #desktop-logo #logo {
+        background-size: 45px auto; } }
+
+#desktop-menu ul li {
+  position: relative;
+  cursor: pointer; }
+  #desktop-menu ul li a {
+    position: relative; }
+    #desktop-menu ul li a.this-is-dropdown::after {
+      content: " \00a0 \f107";
+      font-family: "Font Awesome 5 Pro";
+      font-size: 25px;
+      font-weight: 100;
+      line-height: 0.5em;
+      right: -20px;
+      top: 3px;
+      position: absolute; }
+    #desktop-menu ul li a.open-dropdown::after {
+      content: " \00a0 \f106"; }
+  #desktop-menu ul li ul.sub-menu {
+    display: none;
+    position: absolute;
+    padding: 10px 20px 30px 20px;
+    left: -20px;
+    background: rgba(255, 255, 255, 0.9);
+    margin-top: 29px;
+    width: 200px; }
+    @media (max-width: 940px) {
+      #desktop-menu ul li ul.sub-menu {
+        position: static;
+        padding-bottom: 0;
+        background: none; } }
+    #desktop-menu ul li ul.sub-menu.show {
+      display: block; }
+    #desktop-menu ul li ul.sub-menu li {
+      padding: 5px 0;
+      display: block;
+      float: left;
+      width: 100%;
+      max-width: 100%;
+      margin: 0px; }
+      #desktop-menu ul li ul.sub-menu li a {
+        font-size: 0.9em;
+        font-weight: 400; }
+        @media (max-width: 940px) {
+          #desktop-menu ul li ul.sub-menu li a {
+            font-size: 0.9rem; } }
+      #desktop-menu ul li ul.sub-menu li.current_page_item {
+        border-bottom: none; }
+        #desktop-menu ul li ul.sub-menu li.current_page_item a {
+          font-weight: 500; }
+
+#burger-menu-wrapper {
+  position: absolute;
+  padding: 22px 30px;
+  right: 0;
+  cursor: pointer; }
+  #burger-menu-wrapper #burger-menu {
+    display: none;
+    position: relative; }
+    #burger-menu-wrapper #burger-menu .slice {
+      transition: 0.3s ease-in-out;
+      height: 6px;
+      width: 45px;
+      background: #000;
+      margin-bottom: 5px; }
+
+@media (max-width: 991px) {
+  #topmenu {
+    background: white; }
+    #topmenu #desktop-menu {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, calc(-50% - 35px));
+      display: none;
+      opacity: 0; }
+      #topmenu #desktop-menu ul {
+        float: none; }
+        #topmenu #desktop-menu ul li {
+          width: 100%;
+          text-align: center;
+          margin-left: 0;
+          margin-right: 0; }
+          #topmenu #desktop-menu ul li.current_page_item {
+            font-weight: 500; }
+          #topmenu #desktop-menu ul li span.underline-dash {
+            display: none; }
+          #topmenu #desktop-menu ul li ul.sub-menu {
+            width: 100%;
+            margin-top: 0; }
+            #topmenu #desktop-menu ul li ul.sub-menu li {
+              margin-top: 10px; }
+      #topmenu #desktop-menu.activate {
+        display: block; }
+      #topmenu #desktop-menu.show {
+        opacity: 1; }
+    #topmenu #burger-menu-wrapper #burger-menu {
+      display: block; }
+    #topmenu #desktop-logo, #topmenu #burger-menu-wrapper {
+      width: auto; }
+    #topmenu #desktop-logo {
+      padding-top: 15px; }
+  #burger-menu-wrapper #burger-menu.cross #slice-1 {
+    transform: rotate(45deg);
+    margin-top: 10px; }
+  #burger-menu-wrapper #burger-menu.cross #slice-2 {
+    opacity: 0; }
+  #burger-menu-wrapper #burger-menu.cross #slice-3 {
+    transform: rotate(-45deg);
+    margin-top: -22px; }
+  #topmenu {
+    transition: 0.3s ease-in-out 0.2s; }
+    #topmenu.expand {
+      transition: 0.3s ease-in-out;
+      height: 100vh; }
+    #topmenu #desktop-menu {
+      transition: opacity 0.2s ease-in-out; }
+      #topmenu #desktop-menu.show {
+        transition: opacity 0.2s ease-in-out 0.3s; } }
+
+@media (max-width: 414px), (orientation: landscape) and (max-width: 900px) {
+  #topmenu {
+    cursor: pointer;
+    height: 55px; }
+    #topmenu #desktop-logo {
+      padding-left: 12px;
+      padding-top: 10px; }
+    #topmenu #burger-menu-wrapper {
+      padding-right: 15px;
+      padding-top: 15px;
+      transform: scale(0.9); }
+    #topmenu #desktop-menu {
+      transform: translate(-50%, calc(-50% - 25px)); } }
+
+@media (orientation: landscape) and (max-width: 900px) {
+  #topmenu #desktop-menu {
+    transform: translate(-50%, -50%); } }
+
+#maincontent {
+  padding-top: 160px;
+  margin-bottom: 100px; }
+  @media (max-width: 768px) {
+    #maincontent {
+      padding-top: 120px;
+      margin-bottom: 60px; } }
+  @media (max-width: 414px) {
+    #maincontent {
+      padding-top: 80px;
+      margin-bottom: 30px; } }
+
+.blog h1, .blog h2, .blog h3, .single-post h1, .single-post h2, .single-post h3 {
+  margin-bottom: 0px;
+  color: black;
+  display: block; }
+
+.blog a, .single-post a {
+  color: black; }
+  .blog a:hover, .single-post a:hover {
+    color: black; }
+
+.blog .date, .blog .the-date, .single-post .date, .single-post .the-date {
+  font-style: italic;
+  font-weight: 600;
+  margin-bottom: 20px; }
+
+.blog .post-thumbnail, .single-post .post-thumbnail {
+  margin-bottom: 10px; }
+  .blog .post-thumbnail img, .single-post .post-thumbnail img {
+    width: 100%;
+    height: auto; }
+
+.blog #maincontent {
+  margin-bottom: 0; }
+  .blog #maincontent .post-content {
+    margin-bottom: 60px; }
+
+.page-kontakt .nf-field-element input, .page-kontakt .nf-field-element textarea {
+  padding: 5px 10px; }
+
+.page-kontakt .nf-field-label label {
+  font-weight: 300; }
+
+.page-kontakt .datenschutz .nf-field-label label {
+  font-size: 0.8rem; }
+
+#footer-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+
+#footer-legal-menu-wrapper {
+  text-align: center; }
+  #footer-legal-menu-wrapper #footer-legal-menu {
+    display: inline-block; }
+    #footer-legal-menu-wrapper #footer-legal-menu ul {
+      padding-left: 0;
+      list-style: none;
+      text-align: justify; }
+      #footer-legal-menu-wrapper #footer-legal-menu ul li {
+        display: inline-block;
+        padding: 15px 30px; }
+        #footer-legal-menu-wrapper #footer-legal-menu ul li.empty-row {
+          padding-left: 100%; }
+        #footer-legal-menu-wrapper #footer-legal-menu ul li a {
+          font-size: 12px;
+          color: black;
+          text-decoration: none; }
+          #footer-legal-menu-wrapper #footer-legal-menu ul li a:hover {
+            color: black;
+            opacity: 0.5;
+            text-decoration: underline; }
+        #footer-legal-menu-wrapper #footer-legal-menu ul li.divider {
+          padding-left: 0;
+          padding-right: 0;
+          font-size: 12px; }
+
+@media (max-width: 413px) {
+  #footer-legal-menu-wrapper #footer-legal-menu ul li {
+    padding-left: 5px;
+    padding-right: 5px; }
+    #footer-legal-menu-wrapper #footer-legal-menu ul li.divider {
+      padding-left: 5px;
+      padding-right: 5px; } }
