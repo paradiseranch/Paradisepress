@@ -117,7 +117,7 @@ body
 		background-repeat: no-repeat
 		height: 50px
 		width: 75px
-		@media (max-width: 414px)
+		@media (max-width: 435px)
 			background-size: 45px auto
 
 //DROPDOWN MENU
@@ -134,7 +134,7 @@ body
 					font-size: 25px
 					font-weight: 100
 					line-height: 0.5em
-					right: -20px
+					right: auto
 					top: 3px
 					position: absolute
 				&.open-dropdown::after
@@ -170,6 +170,20 @@ body
 						a
 							font-weight: 500
 
+
+
+//                     VERSION 1: Burger Menu ONLY
+
+// Enables correct Sub-Menu Drop-Down
+#desktop-menu
+	ul
+		li
+			ul.sub-menu
+				position: static
+				padding-bottom: 0
+				background: none
+
+
 // BURGER MENU
 #burger-menu-wrapper
 	position: absolute
@@ -186,67 +200,116 @@ body
 			background: #000
 			margin-bottom: 5px
 
-// toggle desktop and burger menu
-
-@media (max-width: 991px)
-	#topmenu
-		background: rgba(255,255,255,1)
-		#desktop-menu
-			position: absolute
-			top: 50%
-			left: 50%
-			transform: translate(-50%, calc(-50% - 35px))
-			display: none
-			opacity: 0
-			ul
-				float: none
-				li
+// toggle burger menu
+#topmenu
+	background: rgba(255,255,255,1)
+	#desktop-menu
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, calc(-50% - 35px))
+		display: none
+		opacity: 0
+		ul
+			float: none
+			li
+				width: 100%
+				text-align: center
+				margin-left: 0
+				margin-right: 0
+				&.current_page_item
+					font-weight: 500
+				span.underline-dash
+					display: none
+				ul.sub-menu
 					width: 100%
-					text-align: center
-					margin-left: 0
-					margin-right: 0
-					&.current_page_item
-						font-weight: 500
-					span.underline-dash
-						display: none
-					ul.sub-menu
-						width: 100%
-						margin-top: 0
-						li
-							margin-top: 10px
-			&.activate
-				display: block
-			&.show
-				opacity: 1
-		#burger-menu-wrapper
-			#burger-menu
-				display: block
-		#desktop-logo, #burger-menu-wrapper
-			width: auto
-		#desktop-logo
-			padding-top: 15px
-	// burger menu animation
+					margin-top: 0
+					li
+						margin-top: 10px
+		&.activate
+			display: block
+		&.show
+			opacity: 1
 	#burger-menu-wrapper
-		#burger-menu.cross
-			#slice-1
-				transform: rotate(45deg)
-				margin-top: 10px
-			#slice-2
-				opacity: 0
-			#slice-3
-				transform: rotate(-45deg)
-				margin-top: -22px
-	#topmenu
-		transition: 0.3s ease-in-out 0.2s
-		&.expand
-			transition: 0.3s ease-in-out
-			height: 100vh
-		#desktop-menu
-			transition: opacity 0.2s ease-in-out
-			&.show
-				transition: opacity 0.2s ease-in-out 0.3s
+		#burger-menu
+			display: block
+	#desktop-logo, #burger-menu-wrapper
+		width: auto
+	#desktop-logo
+		padding-top: 15px
+// burger menu animation
+#burger-menu-wrapper
+	#burger-menu.cross
+		#slice-1
+			transform: rotate(45deg)
+			margin-top: 10px
+		#slice-2
+			opacity: 0
+		#slice-3
+			transform: rotate(-45deg)
+			margin-top: -22px
+#topmenu
+	transition: 0.3s ease-in-out 0.2s
+	&.expand
+		transition: 0.3s ease-in-out
+		height: 100vh
+	#desktop-menu
+		transition: opacity 0.2s ease-in-out
+		transform: translate(-50%, -50%)
+		&.show
+			transition: opacity 0.2s ease-in-out 0.3s
 
-@media (max-width: 414px), (orientation:landscape) and (max-width: 900px)
+@media (min-height: 560px) and (min-width: 600px)
+	#desktop-menu
+		ul
+			li
+				a
+					font-size: 30px
+					font-weight: 380
+					line-height: 1em
+					&.this-is-dropdown::after
+						font-size: 45px
+						line-height: 0.6em
+				ul.sub-menu
+					li
+						a
+							font-size: 1.4em
+
+
+@media (min-height: 620px) and (min-width: 720px)
+	#desktop-menu
+		ul
+			li
+				a
+					font-size: 43px
+					font-weight: 430
+					line-height: 1.1em
+					&.this-is-dropdown::after
+						font-size: 65px
+						line-height: 0.7em
+				ul.sub-menu
+					li
+						a
+							font-size: 1.5em
+
+@media (min-height: 900px) and (min-width: 1280px)
+	#desktop-menu
+		ul
+			li
+				a
+					line-height: 1.2em
+					font-weight: 500
+					font-size: 43px
+					&.this-is-dropdown::after
+						line-height: 0.7em
+						font-size: 78px
+				ul.sub-menu
+					li
+						a
+							font-size: 1.6em
+
+
+@media (max-width: 435px)
 	#topmenu
 		cursor: pointer
 		height: 55px
@@ -260,10 +323,143 @@ body
 		#desktop-menu
 			transform: translate(-50%, calc(-50% - 25px))
 
+@media (min-width: 767px)
+	#burger-menu-wrapper
+		padding: 25px 30px
+		#burger-menu
+			transform: scale(1.15)
+	#topmenu
+		#desktop-logo
+			padding-top: 18px
+			padding-left: 30px
+		#logo
+			transform: scale(1.075)
+	#topmenu
+		height: 75px
+
 @media (orientation: landscape) and (max-width: 900px)
 	#topmenu
 		#desktop-menu
 			transform: translate(-50%, -50%)
+
+@media (min-width: 992px)
+	#burger-menu-wrapper
+		padding: 30px 50px
+		#burger-menu
+			transform: scale(1.4)
+	#topmenu
+		#desktop-logo
+			padding-top: 23px
+			padding-left: 50px
+		#logo
+			transform: scale(1.15)
+	#topmenu
+		height: 90px
+
+
+
+
+//                  VERSION 2: Burger Menu AND Desktop Menu
+
+// // BURGER MENU
+// #burger-menu-wrapper
+// 	position: absolute
+// 	padding: 22px 30px
+// 	right: 0
+// 	cursor: pointer
+// 	#burger-menu
+// 		display: none
+// 		position: relative
+// 		.slice
+// 			transition: 0.3s ease-in-out
+// 			height: 6px
+// 			width: 45px
+// 			background: #000
+// 			margin-bottom: 5px
+//
+// // toggle desktop and burger menu
+// @media (max-width: 991px)
+// 	#topmenu
+// 		background: rgba(255,255,255,1)
+// 		#desktop-menu
+// 			position: absolute
+// 			top: 50%
+// 			left: 50%
+// 			transform: translate(-50%, calc(-50% - 35px))
+// 			display: none
+// 			opacity: 0
+// 			ul
+// 				float: none
+// 				li
+// 					width: 100%
+// 					text-align: center
+// 					margin-left: 0
+// 					margin-right: 0
+// 					&.current_page_item
+// 						font-weight: 500
+// 					span.underline-dash
+// 						display: none
+// 					ul.sub-menu
+// 						width: 100%
+// 						margin-top: 0
+// 						li
+// 							margin-top: 10px
+// 			&.activate
+// 				display: block
+// 			&.show
+// 				opacity: 1
+// 		#burger-menu-wrapper
+// 			#burger-menu
+// 				display: block
+// 		#desktop-logo, #burger-menu-wrapper
+// 			width: auto
+// 		#desktop-logo
+// 			padding-top: 15px
+// 	// burger menu animation
+// 	#burger-menu-wrapper
+// 		#burger-menu.cross
+// 			#slice-1
+// 				transform: rotate(45deg)
+// 				margin-top: 10px
+// 			#slice-2
+// 				opacity: 0
+// 			#slice-3
+// 				transform: rotate(-45deg)
+// 				margin-top: -22px
+// 	#topmenu
+// 		transition: 0.3s ease-in-out 0.2s
+// 		&.expand
+// 			transition: 0.3s ease-in-out
+// 			height: 100vh
+// 		#desktop-menu
+// 			transition: opacity 0.2s ease-in-out
+// 			&.show
+// 				transition: opacity 0.2s ease-in-out 0.3s
+//
+// @media (max-width: 435px)
+// 	#topmenu
+// 		cursor: pointer
+// 		height: 55px
+// 		#desktop-logo
+// 			padding-left: 12px
+// 			padding-top: 10px
+// 		#burger-menu-wrapper
+// 			padding-right: 15px
+// 			padding-top: 15px
+// 			transform: scale(0.9)
+// 		#desktop-menu
+// 			transform: translate(-50%, calc(-50% - 25px))
+//
+// @media (orientation: landscape) and (max-width: 900px)
+// 	#topmenu
+// 		#desktop-menu
+// 			transform: translate(-50%, -50%)
+
+
+
+
+
+
 
 // MAIN CONTENT
 #maincontent

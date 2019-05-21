@@ -29,6 +29,8 @@ body {
     color: #A17FB0;
     font-weight: 400;
     text-decoration: none;
+    -webkit-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
     transition: 0.25s ease-in-out; }
     body a:hover, body a:active {
       color: #A17FB0;
@@ -63,6 +65,8 @@ body {
   -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.3s cubic-bezier(0.19, 0.63, 0.83, 0.67);
+  -o-transition: 0.3s cubic-bezier(0.19, 0.63, 0.83, 0.67);
   transition: 0.3s cubic-bezier(0.19, 0.63, 0.83, 0.67); }
 
 #topmenu {
@@ -92,6 +96,8 @@ body {
         display: block;
         background: black;
         opacity: 0;
+        -webkit-transition: opacity 0.5s ease-in-out;
+        -o-transition: opacity 0.5s ease-in-out;
         transition: opacity 0.5s ease-in-out;
         margin-top: 10px; }
       #desktop-menu ul li.current_page_item span.underline-dash, #desktop-menu ul li.current-menu-ancestor span.underline-dash, #desktop-menu ul li:hover span.underline-dash, #desktop-menu ul li:active span.underline-dash {
@@ -105,7 +111,7 @@ body {
     background-repeat: no-repeat;
     height: 50px;
     width: 75px; }
-    @media (max-width: 414px) {
+    @media (max-width: 435px) {
       #desktop-logo #logo {
         background-size: 45px auto; } }
 
@@ -120,7 +126,7 @@ body {
       font-size: 25px;
       font-weight: 100;
       line-height: 0.5em;
-      right: -20px;
+      right: auto;
       top: 3px;
       position: absolute; }
     #desktop-menu ul li a.open-dropdown::after {
@@ -158,6 +164,11 @@ body {
         #desktop-menu ul li ul.sub-menu li.current_page_item a {
           font-weight: 500; }
 
+#desktop-menu ul li ul.sub-menu {
+  position: static;
+  padding-bottom: 0;
+  background: none; }
+
 #burger-menu-wrapper {
   position: absolute;
   padding: 22px 30px;
@@ -167,67 +178,122 @@ body {
     display: none;
     position: relative; }
     #burger-menu-wrapper #burger-menu .slice {
+      -webkit-transition: 0.3s ease-in-out;
+      -o-transition: 0.3s ease-in-out;
       transition: 0.3s ease-in-out;
       height: 6px;
       width: 45px;
       background: #000;
       margin-bottom: 5px; }
 
-@media (max-width: 991px) {
-  #topmenu {
-    background: white; }
-    #topmenu #desktop-menu {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, calc(-50% - 35px));
-      display: none;
-      opacity: 0; }
-      #topmenu #desktop-menu ul {
-        float: none; }
-        #topmenu #desktop-menu ul li {
-          width: 100%;
-          text-align: center;
-          margin-left: 0;
-          margin-right: 0; }
-          #topmenu #desktop-menu ul li.current_page_item {
-            font-weight: 500; }
-          #topmenu #desktop-menu ul li span.underline-dash {
-            display: none; }
-          #topmenu #desktop-menu ul li ul.sub-menu {
-            width: 100%;
-            margin-top: 0; }
-            #topmenu #desktop-menu ul li ul.sub-menu li {
-              margin-top: 10px; }
-      #topmenu #desktop-menu.activate {
-        display: block; }
-      #topmenu #desktop-menu.show {
-        opacity: 1; }
-    #topmenu #burger-menu-wrapper #burger-menu {
-      display: block; }
-    #topmenu #desktop-logo, #topmenu #burger-menu-wrapper {
-      width: auto; }
-    #topmenu #desktop-logo {
-      padding-top: 15px; }
-  #burger-menu-wrapper #burger-menu.cross #slice-1 {
-    transform: rotate(45deg);
-    margin-top: 10px; }
-  #burger-menu-wrapper #burger-menu.cross #slice-2 {
+#topmenu {
+  background: white; }
+  #topmenu #desktop-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, calc(-50% - 35px));
+    -ms-transform: translate(-50%, calc(-50% - 35px));
+    transform: translate(-50%, calc(-50% - 35px));
+    display: none;
     opacity: 0; }
-  #burger-menu-wrapper #burger-menu.cross #slice-3 {
-    transform: rotate(-45deg);
-    margin-top: -22px; }
-  #topmenu {
-    transition: 0.3s ease-in-out 0.2s; }
-    #topmenu.expand {
-      transition: 0.3s ease-in-out;
-      height: 100vh; }
-    #topmenu #desktop-menu {
-      transition: opacity 0.2s ease-in-out; }
-      #topmenu #desktop-menu.show {
-        transition: opacity 0.2s ease-in-out 0.3s; } }
+    #topmenu #desktop-menu ul {
+      float: none; }
+      #topmenu #desktop-menu ul li {
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0; }
+        #topmenu #desktop-menu ul li.current_page_item {
+          font-weight: 500; }
+        #topmenu #desktop-menu ul li span.underline-dash {
+          display: none; }
+        #topmenu #desktop-menu ul li ul.sub-menu {
+          width: 100%;
+          margin-top: 0; }
+          #topmenu #desktop-menu ul li ul.sub-menu li {
+            margin-top: 10px; }
+    #topmenu #desktop-menu.activate {
+      display: block; }
+    #topmenu #desktop-menu.show {
+      opacity: 1; }
+  #topmenu #burger-menu-wrapper #burger-menu {
+    display: block; }
+  #topmenu #desktop-logo, #topmenu #burger-menu-wrapper {
+    width: auto; }
+  #topmenu #desktop-logo {
+    padding-top: 15px; }
 
-@media (max-width: 414px), (orientation: landscape) and (max-width: 900px) {
+#burger-menu-wrapper #burger-menu.cross #slice-1 {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  margin-top: 10px; }
+
+#burger-menu-wrapper #burger-menu.cross #slice-2 {
+  opacity: 0; }
+
+#burger-menu-wrapper #burger-menu.cross #slice-3 {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  margin-top: -22px; }
+
+#topmenu {
+  -webkit-transition: 0.3s ease-in-out 0.2s;
+  -o-transition: 0.3s ease-in-out 0.2s;
+  transition: 0.3s ease-in-out 0.2s; }
+  #topmenu.expand {
+    -webkit-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+    height: 100vh; }
+  #topmenu #desktop-menu {
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -o-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
+    #topmenu #desktop-menu.show {
+      -webkit-transition: opacity 0.2s ease-in-out 0.3s;
+      -o-transition: opacity 0.2s ease-in-out 0.3s;
+      transition: opacity 0.2s ease-in-out 0.3s; }
+
+@media (min-height: 560px) and (min-width: 600px) {
+  #desktop-menu ul li a {
+    font-size: 30px;
+    font-weight: 380;
+    line-height: 1em; }
+    #desktop-menu ul li a.this-is-dropdown::after {
+      font-size: 45px;
+      line-height: 0.6em; }
+  #desktop-menu ul li ul.sub-menu li a {
+    font-size: 1.4em; } }
+
+@media (min-height: 620px) and (min-width: 720px) {
+  #desktop-menu ul li a {
+    font-size: 43px;
+    font-weight: 430;
+    line-height: 1.1em; }
+    #desktop-menu ul li a.this-is-dropdown::after {
+      font-size: 65px;
+      line-height: 0.7em; }
+  #desktop-menu ul li ul.sub-menu li a {
+    font-size: 1.5em; } }
+
+@media (min-height: 900px) and (min-width: 1280px) {
+  #desktop-menu ul li a {
+    line-height: 1.2em;
+    font-weight: 500;
+    font-size: 43px; }
+    #desktop-menu ul li a.this-is-dropdown::after {
+      line-height: 0.7em;
+      font-size: 78px; }
+  #desktop-menu ul li ul.sub-menu li a {
+    font-size: 1.6em; } }
+
+@media (max-width: 435px) {
   #topmenu {
     cursor: pointer;
     height: 55px; }
@@ -237,13 +303,53 @@ body {
     #topmenu #burger-menu-wrapper {
       padding-right: 15px;
       padding-top: 15px;
+      -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
       transform: scale(0.9); }
     #topmenu #desktop-menu {
+      -webkit-transform: translate(-50%, calc(-50% - 25px));
+      -ms-transform: translate(-50%, calc(-50% - 25px));
       transform: translate(-50%, calc(-50% - 25px)); } }
+
+@media (min-width: 767px) {
+  #burger-menu-wrapper {
+    padding: 25px 30px; }
+    #burger-menu-wrapper #burger-menu {
+      -webkit-transform: scale(1.15);
+      -ms-transform: scale(1.15);
+      transform: scale(1.15); }
+  #topmenu #desktop-logo {
+    padding-top: 18px;
+    padding-left: 30px; }
+  #topmenu #logo {
+    -webkit-transform: scale(1.075);
+    -ms-transform: scale(1.075);
+    transform: scale(1.075); }
+  #topmenu {
+    height: 75px; } }
 
 @media (orientation: landscape) and (max-width: 900px) {
   #topmenu #desktop-menu {
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); } }
+
+@media (min-width: 992px) {
+  #burger-menu-wrapper {
+    padding: 30px 50px; }
+    #burger-menu-wrapper #burger-menu {
+      -webkit-transform: scale(1.4);
+      -ms-transform: scale(1.4);
+      transform: scale(1.4); }
+  #topmenu #desktop-logo {
+    padding-top: 23px;
+    padding-left: 50px; }
+  #topmenu #logo {
+    -webkit-transform: scale(1.15);
+    -ms-transform: scale(1.15);
+    transform: scale(1.15); }
+  #topmenu {
+    height: 90px; } }
 
 #maincontent {
   padding-top: 160px;
