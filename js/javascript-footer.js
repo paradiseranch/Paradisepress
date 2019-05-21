@@ -58,10 +58,10 @@ jQuery('.menu-main-menu-container ul li').not('ul.sub-menu li').append('<span cl
 /////////////////////////////////////
 
 // burger menu actions
-jQuery('#topmenu').click(function(){
+jQuery('#burger-menu-wrapper').click(function(){
 
   // expand menu bar to full site menu background
-  jQuery(this).toggleClass('expand');
+  jQuery('#topmenu').toggleClass('expand');
 
   // activate
   if (jQuery('#desktop-menu').hasClass('activate')) {
@@ -93,8 +93,21 @@ jQuery('#topmenu').click(function(){
 // animate burger menu X when clicking menu link
 jQuery('#desktop-menu ul li').click(function(){
 
-  // animate cross back to burger symbol
-  jQuery('#burger-menu').removeClass('cross');
+  // if clicking a sub-menu
+  if (jQuery('#desktop-menu ul li ul').hasClass('sub-menu')){
+    //animate burger menu x when clicking sub-menu link
+    jQuery('#desktop-menu ul li ul li').click(function() {
+      // animate cross back to burger symbol
+      jQuery('#burger-menu').removeClass('cross');
+    })
+  }
+
+  // if NOT clicking sub-menu
+  else {
+    // animate cross back to burger symbol
+    jQuery('#burger-menu').removeClass('cross');
+  }
+
 
 });
 
@@ -116,7 +129,8 @@ window.onscroll = function() {
 
   // if window is smaller than 991px (burger menu breakpoint) scroll down will hide menu bar
 } else /*if (jQuery( window ).width() <= 991) */ {
-    document.getElementById("menu-container").style.top = "-70px";
+    // document.getElementById("menu-container").style.top = "-70px";                           // Enable for Ver.2 (desktop-menu AND burger-menu)
+    document.getElementById("menu-container").style.top = "-90px";                           // Enable for Ver.1 (burger-menu ONLY)
   }
   prevScrollpos = currentScrollPos;
 }
