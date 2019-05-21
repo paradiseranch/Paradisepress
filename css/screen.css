@@ -15,8 +15,9 @@ html {
   position: relative; }
 
 body {
+  background: red;
   overflow-x: hidden;
-  position: relative;
+  position: absolute;
   padding-bottom: 100px;
   min-height: 100vh;
   font-weight: 100 !important;
