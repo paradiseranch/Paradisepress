@@ -91,23 +91,9 @@ jQuery('#burger-menu-wrapper').click(function(){
 });
 
 // animate burger menu X when clicking menu link
-jQuery('#desktop-menu ul li').click(function(){
-
-  // if clicking a sub-menu
-  if (jQuery('#desktop-menu ul li ul').hasClass('sub-menu')){
-    //animate burger menu x when clicking sub-menu link
-    jQuery('#desktop-menu ul li ul li').click(function() {
-      // animate cross back to burger symbol
-      jQuery('#burger-menu').removeClass('cross');
-    })
-  }
-
-  // if NOT clicking sub-menu
-  else {
-    // animate cross back to burger symbol
+jQuery('#desktop-menu ul li').not('.menu-item-has-children').click(function(){
+    // remove X
     jQuery('#burger-menu').removeClass('cross');
-  }
-
 
 });
 
